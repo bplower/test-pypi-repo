@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  server:
+    image: pypiserver/pypiserver:latest
+    volumes:
+      - ./data:/data
+    ports:
+      - 8080:8080
+    command: -P /data/.htpasswd -a update,download,list /data/packages
